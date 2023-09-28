@@ -1,4 +1,4 @@
-# Collections Examples, Alexandra Sculley, v0.1c
+# Collections Examples, Alexandra Sculley, v0.1d
 
 # LIST -- ORDERED, CHANGEABLE, ALLOWS DUPLICATE VALUES
 breakfastFoods = ["Bacon", "waffles", "Panckes", "Cereal", "Milk"]
@@ -23,3 +23,16 @@ classGPA = [3.14, 2.25, 1.74, 1.99, 0.99, 4.25]
 #print(breakfastFoods[-1])
 #print(testScores[-1])
 #print(classGPA[-1])
+
+# Pause - WYOC -- Access the 3rd Element in Each List
+#elementTypes = ["Fire", "Light", "Sand", "Magma", "Ice"]
+#specialAngles = [45, 45, 90, 30, 60 ,90]
+#numberSeq = [1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+#print(elementTypes[2])
+#print(specialAngles[2])
+#print(numberSeq[2])
+
+#print(breakfastFoods[2])
+#print(testScores[2])
+#print(classGPA[2])
