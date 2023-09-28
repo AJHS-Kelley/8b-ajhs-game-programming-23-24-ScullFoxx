@@ -1,4 +1,4 @@
-# Collections Examples, Alexandra Sculley, v0.1d
+# Collections Examples, Alexandra Sculley, v0.2a
 
 # LIST -- ORDERED, CHANGEABLE, ALLOWS DUPLICATE VALUES
 breakfastFoods = ["Bacon", "waffles", "Panckes", "Cereal", "Milk"]
@@ -25,9 +25,9 @@ classGPA = [3.14, 2.25, 1.74, 1.99, 0.99, 4.25]
 #print(classGPA[-1])
 
 # Pause - WYOC -- Access the 3rd Element in Each List
-#elementTypes = ["Fire", "Light", "Sand", "Magma", "Ice"]
-#specialAngles = [45, 45, 90, 30, 60 ,90]
-#numberSeq = [1, 1, 2, 3, 5, 8, 13, 21, 34]
+elementTypes = ["Fire", "Light", "Sand", "Magma", "Ice"]
+specialAngles = [45, 45, 90, 30, 60 ,90]
+numberSeq = [1, 1, 2, 3, 5, 8, 13, 21, 34]
 
 #print(elementTypes[2])
 #print(specialAngles[2])
@@ -36,3 +36,29 @@ classGPA = [3.14, 2.25, 1.74, 1.99, 0.99, 4.25]
 #print(breakfastFoods[2])
 #print(testScores[2])
 #print(classGPA[2])
+
+# Change Items in a List
+breakfastFoods[0] = "Sausage"
+testScores[0] = 97
+classGPA[0] = 3.57
+#print(breakfastFoods[0])
+#print(testScores[0])
+#print(classGPA[0])
+#print(breakfastFoods)
+#print(testScores)
+#print(classGPA)
+
+# Pause -- WYOC -- Change 5th Element
+elementTypes[4] = "Darkness"
+specialAngles[4] = 45
+numberSeq[4] = 6
+
+breakfastFoods[4] = "Biscuits n Gravy"
+testScores[4] = 35
+classGPA[4] = 0.01
+print(breakfastFoods)
+print(testScores)
+print(classGPA)
+print(elementTypes)
+print(specialAngles)
+print(numberSeq)
