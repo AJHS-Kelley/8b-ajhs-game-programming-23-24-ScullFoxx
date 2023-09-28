@@ -1,4 +1,4 @@
-# Collections Examples, Alexandra Sculley, v0.2a
+# Collections Examples, Alexandra Sculley, v0.2b
 
 # LIST -- ORDERED, CHANGEABLE, ALLOWS DUPLICATE VALUES
 breakfastFoods = ["Bacon", "waffles", "Panckes", "Cereal", "Milk"]
@@ -38,9 +38,9 @@ numberSeq = [1, 1, 2, 3, 5, 8, 13, 21, 34]
 #print(classGPA[2])
 
 # Change Items in a List
-breakfastFoods[0] = "Sausage"
-testScores[0] = 97
-classGPA[0] = 3.57
+#breakfastFoods[0] = "Sausage"
+#testScores[0] = 97
+#classGPA[0] = 3.57
 #print(breakfastFoods[0])
 #print(testScores[0])
 #print(classGPA[0])
@@ -49,16 +49,46 @@ classGPA[0] = 3.57
 #print(classGPA)
 
 # Pause -- WYOC -- Change 5th Element
-elementTypes[4] = "Darkness"
-specialAngles[4] = 45
-numberSeq[4] = 6
+#elementTypes[4] = "Darkness"
+#specialAngles[4] = 45
+#numberSeq[4] = 6
 
-breakfastFoods[4] = "Biscuits n Gravy"
-testScores[4] = 35
-classGPA[4] = 0.01
-print(breakfastFoods)
-print(testScores)
-print(classGPA)
+#breakfastFoods[4] = "Biscuits n Gravy"
+#testScores[4] = 35
+#classGPA[4] = 0.01
+#print(breakfastFoods)
+#print(testScores)
+#print(classGPA)
+#print(elementTypes)
+#print(specialAngles)
+#print(numberSeq)
+
+# Adding and Inserting Items of a List
+# .append() adds an item to the END of a list.
+#breakfastFoods.append("hash browns")
+#print(breakfastFoods)
+#testScores.append(99)
+#print(testScores)
+#classGPA.append(1.99)
+#print(classGPA)
+
+# .insert() allows you to place an item at a specific index in the list.
+#breakfastFoods.insert(3, "Parfait")
+#print(breakfastFoods)
+#testScores.insert(3, 55)
+#print(testScores)
+#classGPA.insert(3, 0.0)
+#print(classGPA)
+
+#PAUSE -- WYOC -- .append() another item to each list. .insert() an item at index 5 to each list.
+elementTypes.append("Smoke")
+specialAngles.append(180)
+numberSeq.append(55)
+
+elementTypes.insert(5, "Water")
+specialAngles.insert(5, 360)
+numberSeq.insert(5, 13)
+
 print(elementTypes)
 print(specialAngles)
 print(numberSeq)
