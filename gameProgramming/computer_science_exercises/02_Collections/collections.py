@@ -1,7 +1,7 @@
-# Collections Examples, Alexandra Sculley, v0.2b
+# Collections Examples, Alexandra Sculley, v0.2c
 
 # LIST -- ORDERED, CHANGEABLE, ALLOWS DUPLICATE VALUES
-breakfastFoods = ["Bacon", "waffles", "Panckes", "Cereal", "Milk"]
+breakfastFoods = ["Bacon", "Waffles", "Panckes", "Cereal", "Milk"]
 # Each item on the list is known as an ELEMENT.
 # The position in the list for each item is the INDEX.
 # The element "BACON" is at index 0.
@@ -81,14 +81,40 @@ numberSeq = [1, 1, 2, 3, 5, 8, 13, 21, 34]
 #print(classGPA)
 
 #PAUSE -- WYOC -- .append() another item to each list. .insert() an item at index 5 to each list.
-elementTypes.append("Smoke")
-specialAngles.append(180)
-numberSeq.append(55)
+#elementTypes.append("Smoke")
+#specialAngles.append(180)
+#numberSeq.append(55)
+#elementTypes.insert(5, "Water")
+#specialAngles.insert(5, 360)
+#numberSeq.insert(5, 13)
+#print(elementTypes)
+#print(specialAngles)
+#print(numberSeq)
 
-elementTypes.insert(5, "Water")
-specialAngles.insert(5, 360)
-numberSeq.insert(5, 13)
+# Deleting Items from a List
+# Use ,remove() to remove a specific item from the list.
+#breakfastFoods.remove("Waffles")
+#print(breakfastFoods)
+#testScores.remove(100)
+#print(testScores)
+#classGPA.remove(2.25)
+#print(classGPA)
 
-print(elementTypes)
-print(specialAngles)
-print(numberSeq)
+# To delete using the index value we use .pop()
+#breakfastFoods.pop(4)
+#print(breakfastFoods)
+#testScores.pop(4)
+#print(testScores)
+#classGPA.pop(4)
+#print(classGPA)
+
+# PAUSE - WYOC -- .pop() the 2nd element from each list. .remove() any item from the list
+#elementTypes.pop(1)
+#specialAngles.pop(1)
+#numberSeq.pop(1)
+#elementTypes.remove("Magma")
+#specialAngles.remove(90)
+#numberSeq.remove(34)
+#print(elementTypes)
+#print(specialAngles)
+#print(numberSeq)
