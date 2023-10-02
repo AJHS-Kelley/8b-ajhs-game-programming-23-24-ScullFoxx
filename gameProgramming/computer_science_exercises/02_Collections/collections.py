@@ -1,4 +1,4 @@
-# Collections Examples, Alexandra Sculley, v0.4b
+# Collections Examples, Alexandra Sculley, v0.4c
 
 # LIST -- ORDERED, CHANGEABLE, ALLOWS DUPLICATE VALUES
 #breakfastFoods = ["Bacon", "Waffles", "Pancakes", "Cereal", "Milk"]
@@ -129,18 +129,26 @@ testScores = [95, 100, 25, 15, 27, 35, 100]
 classGPA = [3.14, 2.25, 1.74, 1.99, 0.99, 4.25, 2.25]
 
 # .count() will return the number of times a value appears in a list.
-numWaffles = breakfastFoods.count("Waffles")
-print(f" There are {numWaffles} Waffles in the list.")
-numPancakes = breakfastFoods.count("Pancakes")
-print(f" There are {numPancakes} Pancakes in the list.")
+#numWaffles = breakfastFoods.count("Waffles")
+#print(f" There are {numWaffles} Waffles in the list.")
+#numPancakes = breakfastFoods.count("Pancakes")
+#print(f" There are {numPancakes} Pancakes in the list.")
 
 # Pause -- WYOC -- Use .count() to count for a single item in the list and any multiple items. Use testScores and classGPA.
 
-num25s = testScores.count(25)
-print(f" There are {num25s} 25s in the list.")
-num100s = testScores.count(100)
-print(f" There are {num100s} 100s in the list.")
-num099s = classGPA.count(0.99)
-print(f" There are {num099s} 0.99s in the list.")
-num225s = classGPA.count(2.25)
-print(f" There are {num225s} 2.25s in the list.")
+#num25s = testScores.count(25)
+#print(f" There are {num25s} 25s in the list.")
+#num100s = testScores.count(100)
+#print(f" There are {num100s} 100s in the list.")
+#num099s = classGPA.count(0.99)
+#print(f" There are {num099s} 0.99s in the list.")
+#num225s = classGPA.count(2.25)
+#print(f" There are {num225s} 2.25s in the list.")
+
+# Deleting All Contents of a List -- .clear()
+#breakfastFoods.clear()
+#print(f"The breakfast foods list is {breakfastFoods}.")
+#testScores.clear()
+#print(f"The testScores List is {testScores}.")
+#classGPA.clear()
+#print(f"The classGPA list is {classGPA}.")
