@@ -1,4 +1,4 @@
-# Collections Examples, Alexandra Sculley, v0.3a
+# Collections Examples, Alexandra Sculley, v0.4a
 
 # LIST -- ORDERED, CHANGEABLE, ALLOWS DUPLICATE VALUES
 breakfastFoods = ["Bacon", "Waffles", "Panckes", "Cereal", "Milk"]
@@ -18,7 +18,6 @@ classGPA = [3.14, 2.25, 1.74, 1.99, 0.99, 4.25]
 #print(breakfastFoods[0])
 #print(testScores[0])
 #print(classGPA[0])
-
 # Accessing Last Element in Lists
 #print(breakfastFoods[-1])
 #print(testScores[-1])
@@ -120,6 +119,18 @@ numberSeq = [1, 1, 2, 3, 5, 8, 13, 21, 34]
 #print(numberSeq)
 
 # Determing List Length
-print(f"There are {len(breakfastFoods)} items in the breakfastFoods list.")
-print(f"There are {len(testScores)} scores in the testScores list.")
-print(f"There are {len(classGPA)} GPAs in the classGPA list.")
+#print(f"There are {len(breakfastFoods)} items in the breakfastFoods list.")
+#print(f"There are {len(testScores)} scores in the testScores list.")
+#print(f"There are {len(classGPA)} GPAs in the classGPA list.")
+
+# List Methods -- Functions for working with lists.
+# Sorting Lists -- Alphanumerical -- Ascending -- Capital Letters before Lower case letters.
+print(f"The original breakfastFoods list is {breakfastFoods}.")
+breakfastFoods.sort()
+print(f"The sorted breakfastFoods list is {breakfastFoods}.")
+print(f"The original testScores list is {testScores}.")
+testScores.sort()
+print(f"The sorted testScores list is {testScores}.")
+print(f"The original classGPA list is {classGPA}.")
+classGPA.sort()
+print(f"The sorted classGPA list is {classGPA}.")
