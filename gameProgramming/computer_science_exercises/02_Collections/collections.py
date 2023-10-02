@@ -152,3 +152,8 @@ classGPA = [3.14, 2.25, 1.74, 1.99, 0.99, 4.25, 2.25]
 #print(f"The testScores List is {testScores}.")
 #classGPA.clear()
 #print(f"The classGPA list is {classGPA}.")
+
+# Common Bugs -- Index Out Of Range
+print(f"The last item in the list is {breakfastFoods[4]}.")
+
+print(f"The last item in the testScores list is {testScores[len(testScores) - 1]}.")
