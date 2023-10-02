@@ -1,4 +1,4 @@
-# Collections Examples, Alexandra Sculley, v0.4c
+# Collections Examples, Alexandra Sculley, v0.5a
 
 # LIST -- ORDERED, CHANGEABLE, ALLOWS DUPLICATE VALUES
 #breakfastFoods = ["Bacon", "Waffles", "Pancakes", "Cereal", "Milk"]
