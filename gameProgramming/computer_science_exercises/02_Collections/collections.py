@@ -1,4 +1,4 @@
-# Collections Examples, Alexandra Sculley, v0.2c
+# Collections Examples, Alexandra Sculley, v0.3a
 
 # LIST -- ORDERED, CHANGEABLE, ALLOWS DUPLICATE VALUES
 breakfastFoods = ["Bacon", "Waffles", "Panckes", "Cereal", "Milk"]
@@ -98,7 +98,7 @@ numberSeq = [1, 1, 2, 3, 5, 8, 13, 21, 34]
 #testScores.remove(100)
 #print(testScores)
 #classGPA.remove(2.25)
-#print(classGPA)
+#print(classGPA) 
 
 # To delete using the index value we use .pop()
 #breakfastFoods.pop(4)
@@ -118,3 +118,8 @@ numberSeq = [1, 1, 2, 3, 5, 8, 13, 21, 34]
 #print(elementTypes)
 #print(specialAngles)
 #print(numberSeq)
+
+# Determing List Length
+print(f"There are {len(breakfastFoods)} items in the breakfastFoods list.")
+print(f"There are {len(testScores)} scores in the testScores list.")
+print(f"There are {len(classGPA)} GPAs in the classGPA list.")
