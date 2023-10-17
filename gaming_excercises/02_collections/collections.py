@@ -1,4 +1,4 @@
-# Collections Game, Alexandra Sculley, v0.1
+# Collections Game, Alexandra Sculley, v0.2
 
 # playerInventory = []
 
@@ -57,3 +57,4 @@ while weaponNum < len(weaponList):
         print("You are wielding the Muchbane.")
     if weaponNum == 6 and weaponList[6] == True:
         print("You are holding God's Tears.")
+    weaponNum += 1
