@@ -23,3 +23,15 @@
     # When drawing cards, if drawn not the specific card, keep it, end turn
 # Add mini rule segment at the beginning of the game
 # Player with most collected pairs wins.
+
+
+
+print("""
+    *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+    |                             |
+    |          Go Fish!           |
+    |           >oo               |
+    |                             |
+    *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+     """)
+
