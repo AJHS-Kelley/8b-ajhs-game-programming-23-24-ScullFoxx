@@ -1,4 +1,4 @@
-#8B 03_functions Sculley Alexandra, 10/25/23 v0.2
+#8B 03_functions Sculley Alexandra, 10/25/23 v0.3
 import random
 # Function -- A named piece of code that can be used easily.
 # Function signature -- Syntax for creatomg a new function.
@@ -44,13 +44,19 @@ def rollDice(numDice, sizeDice):
 #print(wisdomPlayer)
 
 def genStats():
-    playerStats = []
-    playerStats.append(rollDice(3, 6)) #rollDice(3, 6) # STRENGTH
-    playerStats.append(rollDice(3, 6)) # DEXTERITY
-    playerStats.append(rollDice(3, 6)) # CONSTITUTION
-    playerStats.append(rollDice(3, 6)) # INTELLIGENCE 
-    playerStats.append(rollDice(3, 6)) # WISDOM
-    playerStats.append(rollDice(3, 6)) # CHARISMA
+    playerStats = [
+        0, # STRENGTH
+        0, # DEXTERITY
+        0, # CONSTITUTION
+        0, # INTELLIGENCE
+        0, # WISDOM
+        0 # CHARISMA
+        ]
+    i = 0
+    while i < len(playerStats):
+        playerStats[i] = rollDice(3, 6)
+        i += 1
+    
     print(playerStats)
 
 genStats()
