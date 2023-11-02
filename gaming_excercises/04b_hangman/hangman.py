@@ -1,4 +1,4 @@
-# Hangman Game by Alexandra Sculley, v0.5
+# Hangman Game by Alexandra Sculley, v0.6
 import random
 
 words = 'purple orange red yellow violet blue teal green banana seagreen beige lavender crimson maroon coral cyan lime turquoise fuchisa olive vermillion aquamarine apricot sienna feldgrau smaragdine xanadu amaranth glaucous skobeloff'.split()
@@ -65,6 +65,22 @@ def displayBoard(missedLetters, correctLetters, secretWord):
     for letter in blanks:
         print(letter, end = ' ')
     print()
+
+def getGuess(alreadyGuessed):
+    while True:
+        print('Please guess a letter from A-Z and press enter.')
+        guess = input()
+        guess = guess.lower()
+        if len(guess) != 1:
+            print('Please enter a single letter.')
+        elif guess in alreadyGuessed:
+            print('You have already guessed this letter, pick another.')
+        elif guess not in 'abcedfghijklmnopqrstuvwxyz':
+            print('Please guess a LETTER from the ENGLISH ALPHABET.')
+        else:
+            return guess  
+
+
 
 
 
