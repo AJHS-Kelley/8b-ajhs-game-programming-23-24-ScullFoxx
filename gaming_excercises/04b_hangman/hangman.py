@@ -1,4 +1,4 @@
-# Hangman Game by Alexandra Sculley, v0.8
+# Hangman Game by Alexandra Sculley, v0.9
 import random
 
 words = 'purple orange red yellow violet blue teal green banana seagreen beige lavender crimson maroon coral cyan lime turquoise fuchisa olive vermillion aquamarine apricot sienna feldgrau smaragdine xanadu amaranth glaucous skobeloff'.split()
@@ -94,14 +94,39 @@ gameIsDone = False
 # Main Game Loop
 while True:
     displayBoard(missedLetters, correctLetters, secretWord)
-    
+    print(secretWord)
     guess = getGuess(missedLetters + correctLetters)
 
     if guess in secretWord:
         correctLetters = correctLetters + guess
 
+    # Check to See If Winner, Winner Chikcen Dinner
+        foundAllLetters = True
+        for i in range(len(secretWord)):
+            if secretWord [i] not in correctLetters:
+                foundAllLetters = False
+                break
+            if foundAllLetters: # if True:
+                print('Congrats you win.')
+                print('The secret word was ' + secretWord)
+                gameIsDone = True
+    else:
+        missedLetters = missedLetters + guess
 
-
+        if len(missedLetters) == len(HANGMAN_BOARD) - 1:
+            displayBoard(missedLetters, correctLetters, secretWord)
+            print('You have lost the game, ran out of guesses.')
+            print('Your number of correct letters ' + str(len(correctLetters)))
+            print('The secret word was ' + secretWord)
+            gameIsDone = True
+    if gameIsDone:
+        if playAgain():
+            missedLetters = ''
+            correctLetters = ''
+            gameIsDone = False
+            secretWord = getRandomWord(words)
+        else: 
+            break
 
 # i = 0
 # while i < 50:
