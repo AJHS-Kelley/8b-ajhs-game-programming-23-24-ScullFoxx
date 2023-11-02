@@ -1,4 +1,4 @@
-# Hangman Game by Alexandra Sculley, v0.4
+# Hangman Game by Alexandra Sculley, v0.5
 import random
 
 words = 'purple orange red yellow violet blue teal green banana seagreen beige lavender crimson maroon coral cyan lime turquoise fuchisa olive vermillion aquamarine apricot sienna feldgrau smaragdine xanadu amaranth glaucous skobeloff'.split()
@@ -54,8 +54,17 @@ def displayBoard(missedLetters, correctLetters, secretWord):
     for eachLetter in missedLetters:
         print(eachLetter, end = ' ')
     print()
-    # FINISH THURSDAY
+    
+    blanks = '_' * len(secretWord)
 
+    # Replace blanks with correct letters
+    for i in range(len(secretWord)):
+        if secretWord[i] in correctLetters:
+            blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
+
+    for letter in blanks:
+        print(letter, end = ' ')
+    print()
 
 
 
