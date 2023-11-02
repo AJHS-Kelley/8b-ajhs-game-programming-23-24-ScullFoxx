@@ -1,4 +1,4 @@
-# Hangman Game by Alexandra Sculley, v0.7
+# Hangman Game by Alexandra Sculley, v0.8
 import random
 
 words = 'purple orange red yellow violet blue teal green banana seagreen beige lavender crimson maroon coral cyan lime turquoise fuchisa olive vermillion aquamarine apricot sienna feldgrau smaragdine xanadu amaranth glaucous skobeloff'.split()
@@ -84,6 +84,21 @@ def playAgain():
     print('Do you want to play again? \n Yes or no?')
     return input().lower().startswith('y')
 
+# Introduce the Game 
+print('Welcome to Hangman by Alexandra S.')
+missedLetters = ''
+correctLetters = ''
+secretWord = getRandomWord(words)
+gameIsDone = False
+
+# Main Game Loop
+while True:
+    displayBoard(missedLetters, correctLetters, secretWord)
+    
+    guess = getGuess(missedLetters + correctLetters)
+
+    if guess in secretWord:
+        correctLetters = correctLetters + guess
 
 
 
