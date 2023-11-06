@@ -1,4 +1,4 @@
-# Hangman Game by Alexandra Sculley, v1.3
+# Hangman Game by Alexandra Sculley, v1.4
 import random
 #words = 'purple orange red yellow violet blue teal green cyan lime beige lavender crimson maroon coral banana seagreen turquoise fuchisa olive vermillion aquamarine apricot sienna feldgrau smaragdine xanadu amaranth glaucous skobeloff'.split( )
 # DICTIONARY VERSION
@@ -181,9 +181,119 @@ while True:
                 print('Please choose a difficulty between Easy, Medium, or Hard. Type the first letter then press enter.\n')
                 difficulty = input().upper()
             if difficulty == 'M': # MEDIUM
+                HANGMAN_BOARD = ['''
+        +---+
+            |
+            |
+            |
+            |
+         ======= ''', '''
+        +---+
+        O   |
+            |
+            |
+            |
+         =======''',''' 
+        +---+
+        O   |
+        |   |
+            |
+            |
+         =======''', '''
+        +---+
+        O   |
+       /|   |
+            |
+            |
+         =======''', '''
+        +---+
+        O   |
+       /|\  |
+            |
+            |
+         =======''', '''
+        +---+
+        O   |
+       /|\  |
+       /    |
+            |
+         =======''', '''
+        +---+
+        O   |
+       /|\  |
+       / \  |
+            |
+         =======''', '''
+        +---+
+        O   |
+      o-|-o |
+       / \  |
+            |
+         =======''', '''
+        +---+
+        O   |
+      o-|-o |
+       / \  |
+      o   o |
+         =======''']
                 del HANGMAN_BOARD[8]
                 del HANGMAN_BOARD[7]
             elif difficulty == 'H': # HARD
+                HANGMAN_BOARD = ['''
+        +---+
+            |
+            |
+            |
+            |
+         ======= ''', '''
+        +---+
+        O   |
+            |
+            |
+            |
+         =======''',''' 
+        +---+
+        O   |
+        |   |
+            |
+            |
+         =======''', '''
+        +---+
+        O   |
+       /|   |
+            |
+            |
+         =======''', '''
+        +---+
+        O   |
+       /|\  |
+            |
+            |
+         =======''', '''
+        +---+
+        O   |
+       /|\  |
+       /    |
+            |
+         =======''', '''
+        +---+
+        O   |
+       /|\  |
+       / \  |
+            |
+         =======''', '''
+        +---+
+        O   |
+      o-|-o |
+       / \  |
+            |
+         =======''', '''
+        +---+
+        O   |
+      o-|-o |
+       / \  |
+      o   o |
+         =======''']
                 del HANGMAN_BOARD[8]
                 del HANGMAN_BOARD[7]
                 del HANGMAN_BOARD[5]
