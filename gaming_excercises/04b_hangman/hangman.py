@@ -1,4 +1,4 @@
-# Hangman Game by Alexandra Sculley, v1.2
+# Hangman Game by Alexandra Sculley, v1.3
 import random
 #words = 'purple orange red yellow violet blue teal green cyan lime beige lavender crimson maroon coral banana seagreen turquoise fuchisa olive vermillion aquamarine apricot sienna feldgrau smaragdine xanadu amaranth glaucous skobeloff'.split( )
 # DICTIONARY VERSION
@@ -69,10 +69,10 @@ HANGMAN_BOARD = ['''
          =======''']
 
 # Pick word from list
-def getRandomWord(wordList): # Return a random word from the list.
-    wordIndex = random.randint(0, len(wordList) - 1)
-    #len(listName) is 1 is EXTREMELY COMMON FOR WORKING WITH  LISTS.
-    return wordList[wordIndex]
+# def getRandomWord(wordList): # Return a random word from the list.
+#     wordIndex = random.randint(0, len(wordList) - 1)
+#     #len(listName) is 1 is EXTREMELY COMMON FOR WORKING WITH  LISTS.
+#     return wordList[wordIndex]
 
 # Pick word from Dictionar
 def getRandomWord(wordDict): # Return a random word from the list.
@@ -138,11 +138,12 @@ elif difficulty == 'H': # HARD
 
 missedLetters = ''
 correctLetters = ''
-secretWord = getRandomWord(words)
+secretWord, secretSet = getRandomWord(words)
 gameIsDone = False
 
 # Main Game Loop
 while True:
+    print('The secret word is from the ' + secretSet + ' category.\n')
     displayBoard(missedLetters, correctLetters, secretWord)
     guess = getGuess(missedLetters + correctLetters)
     
@@ -173,7 +174,20 @@ while True:
             missedLetters = ''
             correctLetters = ''
             gameIsDone = False
-            secretWord = getRandomWord(words)
+            secretWord, secretSet = getRandomWord(words)
+                # CHOOSE DIFFICULTY
+            difficulty = 'X'
+            while difficulty not in 'EMH':
+                print('Please choose a difficulty between Easy, Medium, or Hard. Type the first letter then press enter.\n')
+                difficulty = input().upper()
+            if difficulty == 'M': # MEDIUM
+                del HANGMAN_BOARD[8]
+                del HANGMAN_BOARD[7]
+            elif difficulty == 'H': # HARD
+                del HANGMAN_BOARD[8]
+                del HANGMAN_BOARD[7]
+                del HANGMAN_BOARD[5]
+                del HANGMAN_BOARD[3]
         else: 
             break
 
