@@ -1,7 +1,14 @@
-# Hangman Game by Alexandra Sculley, v1.0
+# Hangman Game by Alexandra Sculley, v1.1
 import random
-
-words = 'purple orange red yellow violet blue teal green banana seagreen beige lavender crimson maroon coral cyan lime turquoise fuchisa olive vermillion aquamarine apricot sienna feldgrau smaragdine xanadu amaranth glaucous skobeloff'.split( )
+#words = 'purple orange red yellow violet blue teal green cyan lime beige lavender crimson maroon coral banana seagreen turquoise fuchisa olive vermillion aquamarine apricot sienna feldgrau smaragdine xanadu amaranth glaucous skobeloff'.split( )
+# DICTIONARY VERSION
+# Stored in Key:Value Pairs.
+# Actual Dictionary Word (Key): Value (Definition)
+# Uses {} to specify a dictionary.
+words = {'Colors': 'lavender crimson coral seagreen fuchisa feldgrau smaragdine xanadu maroon purple turquoise olvie vermillion apricot sienna'.split(),
+         'Animals': 'cow cat bat dog lion tiger leopard tortise turtle seasponge seaurchin squid'.split(),
+         'Shapes': 'square triangle trapezoid diamond oval circle rhombus elipse'.split(),
+         'Foods': 'cake hotdog hamburger salmon shrimp rice pancake waffles omlete'.split()}
 
 # VARIABLE_NAMES in ALL-CAPS ARE CONSTANTS AND NOT MEANT TO CHANGE!
 HANGMAN_BOARD = ['''
