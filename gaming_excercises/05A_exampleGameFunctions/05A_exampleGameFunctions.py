@@ -1,4 +1,4 @@
-# Fight Game, Alexandra Sculley, v0.0
+# Fight Game, Alexandra Sculley, v0.1
 import random
 # Make characters
     # Assign them different attack, health, and defense stats
@@ -10,11 +10,30 @@ import random
 
 # FUNCTIONS DEFINED
 
-def assignedStats():
+def getChar(charcter):
     pass
 
+def rollDice(numDice, sizeDice):
+    numRolled = 0
+    sum = 0
+    while numRolled < numDice:
+        roll = random.randint(1, sizeDice)
+        sum += roll
+        print(f"Roll: {roll}\n")
+        print(f"Sum: {sum}\n")
+        numRolled += 1
+    return sum
 
-
+def genStats():
+    playerStats = [
+        0, # STRENGTH
+        0, # HEALTH
+        0  # DEFENSE
+        ]
+    i = 0
+    while i < len(playerStats):
+        playerStats[i] = rollDice(3, 6)
+        i += 1
 
 
 
@@ -48,4 +67,6 @@ while picked == False:
         picked = True
         print(playerCharacter)
 
-
+cpuChar = getChar(character)
+while True:
+ pass
