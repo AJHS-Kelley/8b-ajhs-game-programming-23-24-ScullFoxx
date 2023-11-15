@@ -62,7 +62,8 @@ def attackTime():
     if playerAttack == True:
         pass
     elif cpuAttack == True:
-        print(cpuStats)
+        #print(cpuStats)
+        pass
     
 
 
@@ -97,7 +98,7 @@ while picked == False:
 
 playerStats = genStats()
 cpuChar = getChar()
-cpuStats = genStats()
+#cpuStats = genStats()
 print(f"CPU is character {cpuChar}")
 
 cpuAttack = True 
