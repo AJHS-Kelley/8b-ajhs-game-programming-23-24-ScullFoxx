@@ -1,4 +1,4 @@
- # Fight Game, Alexandra Sculley, v0.3
+ # Fight Game, Alexandra Sculley, v0.4
 import random
 # Make characters
     # Assign them different attack, health, and defense stats
@@ -33,7 +33,7 @@ def rollDice(numDice, sizeDice):
 
 def genStats():
     playerStats = [
-        0, # HELATH
+        0, # HEALTH
         0, # STRENGTH
         0  # DEFENSE
         ]
@@ -56,13 +56,14 @@ def genStats():
     print(f"Your health is {health}")
     print(f"You do about {strength} damage per hit.")
     print(f"You have {defense} extra health.")
+    return health, strength, defense 
 
 def attackTime():
     if playerAttack == True:
         pass
     elif cpuAttack == True:
-        cpuChar = 1
-        pass
+        print(cpuStats)
+    
 
 
 # ~~~ BEGINNING OF THE GAME TEXT ~~~
@@ -94,12 +95,12 @@ while picked == False:
         picked = True
         print(f"You have selected {playerCharacter}")
 
-cpuChar = getChar()
 playerStats = genStats()
+cpuChar = getChar()
 cpuStats = genStats()
 print(f"CPU is character {cpuChar}")
 
-
+cpuAttack = True 
+attackTime()
 while True:
-    playerAttack = True 
-    
+    pass
