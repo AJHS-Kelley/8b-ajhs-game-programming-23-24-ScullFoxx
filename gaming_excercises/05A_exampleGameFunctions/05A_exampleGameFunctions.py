@@ -1,4 +1,4 @@
- # Fight Game, Alexandra Sculley, v0.4
+ # Fight Game, Alexandra Sculley, v0.5
 import random
 # Make characters
     # Assign them different attack, health, and defense stats
@@ -13,7 +13,15 @@ strength = 0
 health = 0
 defense = 0
 cpuAttack = False
-playerAttack = False
+playerAttack = True
+playerStrength = 0
+playerHealth = 0
+playerDefense = 0
+cpuStats = [0, 0, 0]
+cpuStrength = 0
+cpuHealth = 0
+cpuDefense = 0
+dmg = 0
 
 def getChar():
     getNum = random.randint(0, len(characterList) - 1)
@@ -32,6 +40,7 @@ def rollDice(numDice, sizeDice):
     return sum
 
 def genStats():
+    global playerHealth, playerStrength, playerDefense
     playerStats = [
         0, # HEALTH
         0, # STRENGTH
@@ -42,30 +51,79 @@ def genStats():
         playerStats[i] = rollDice(3, 6)
         i += 1
     if playerStats[0] >= 6:
-        health = 150
+        playerHealth = 150
     else:
-        health = 90
+        playerHealth = 90
     if playerStats[1] >= 6:
-        strength = 20
+        playerStrength = 20
     else:
-        strength = 10
+        playerStrength = 10
     if playerStats[2] >= 6:
-        defense = 30
+        playerDefense = 30
     else:
-        defense = 10
-    print(f"Your health is {health}")
-    print(f"You do about {strength} damage per hit.")
-    print(f"You have {defense} extra health.")
-    return health, strength, defense 
+        playerDefense = 10
+    print(f"Your health is {playerHealth}")
+    print(f"You do about {playerStrength} damage per hit.")
+    print(f"You have {playerDefense} extra health.")
+    return playerHealth, playerStrength, playerDefense 
+
+def genCpuStats():
+    global cpuHealth, cpuStrength, cpuDefense
+    cpuStats = [
+        0, # HEALTH
+        0, # STRENGTH
+        0  # DEFENSE
+        ]
+    i = 0
+    while i < len(cpuStats):
+        cpuStats[i] = rollDice(3, 6)
+        i += 1
+    if cpuStats[0] >= 6:
+        cpuHealth = 150
+    else:
+        cpuHealth = 90
+    if cpuStats[1] >= 6:
+        cpuStrength = 20
+    else:
+        cpuStrength = 10
+    if cpuStats[2] >= 6:
+        cpuDefense = 30
+    else:
+        cpuDefense = 10
+    print(f"CPU's health is {cpuHealth}")
+    print(f"CPU's strength is about {cpuStrength} damage per hit.")
+    print(f"CPU has {cpuDefense} extra health.")
+    return cpuHealth, cpuStrength, cpuDefense
+
 
 def attackTime():
-    if playerAttack == True:
-        pass
-    elif cpuAttack == True:
-        #print(cpuStats)
-        pass
+    global playerCharacter, cpuChar, playerStrength, playerDefense, playerHealth, cpuStrength, cpuDefense, cpuHealth, playerAttack, cpuAttack
+    cpuHealth = cpuHealth + cpuDefense
+    playerHealth = playerHealth + playerDefense
+    fightStart = input("Fight?\n")
+    if fightStart == "y":
+        if playerAttack == True:
+            print(f"You did {damageRoll(playerCharacter)} damage to {cpuChar}! Leaving them with {cpuHealth - damageRoll(playerCharacter)} health.\n")
+            playerAttack = False
+            cpuAttack = True
+        elif cpuAttack == True:
+            print(f"CPU did {damageRoll(cpuChar)} damage to {playerCharacter}! Leaving you with {playerHealth - damageRoll(cpuChar)} health.\n")
+            playerAttack = True
+            cpuAttack = False   
+    elif fightStart == "n":
+        print("You have chosen not to fight. Game over pacifist.") 
+    else:
+        print("y")
     
-
+def damageRoll(char):
+    global playerStrength, cpuStrength
+    if char == cpuChar:
+        dmg = random.randint(cpuStrength - 5, cpuStrength + 5)
+    elif char == playerCharacter:
+        dmg = random.randint(playerStrength - 5, playerStrength + 5)
+    
+    return dmg
+    
 
 # ~~~ BEGINNING OF THE GAME TEXT ~~~
 print("""
@@ -98,10 +156,14 @@ while picked == False:
 
 playerStats = genStats()
 cpuChar = getChar()
-#cpuStats = genStats()
+cpuStats = genCpuStats()
+print(cpuStats)
+print(playerStats)
 print(f"CPU is character {cpuChar}")
 
-cpuAttack = True 
-attackTime()
-while True:
-    pass
+while cpuHealth > 0 or playerHealth > 0:
+    attackTime()
+    if cpuHealth <= 0:
+        print("You win! Trash cpu.")
+    elif playerHealth <= 0:
+        print("CPU wins! Trash player.")
