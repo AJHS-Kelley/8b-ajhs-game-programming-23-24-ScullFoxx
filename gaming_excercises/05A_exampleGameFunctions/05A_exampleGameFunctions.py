@@ -103,11 +103,13 @@ def attackTime():
     fightStart = input("Fight?\n")
     if fightStart == "y":
         if playerAttack == True:
-            print(f"You did {damageRoll(playerCharacter)} damage to {cpuChar}! Leaving them with {cpuHealth - damageRoll(playerCharacter)} health.\n")
+            cpuHealth = cpuHealth - damageRoll(playerCharacter)
+            print(f"You did {damageRoll(playerCharacter)} damage to {cpuChar}! Leaving them with {cpuHealth} health.\n")
             playerAttack = False
             cpuAttack = True
         elif cpuAttack == True:
-            print(f"CPU did {damageRoll(cpuChar)} damage to {playerCharacter}! Leaving you with {playerHealth - damageRoll(cpuChar)} health.\n")
+            playerHealth = playerHealth - damageRoll(cpuChar)
+            print(f"CPU did {damageRoll(cpuChar)} damage to {playerCharacter}! Leaving you with {playerHealth} health.\n")
             playerAttack = True
             cpuAttack = False   
     elif fightStart == "n":
