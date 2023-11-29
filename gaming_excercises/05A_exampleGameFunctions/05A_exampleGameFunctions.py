@@ -1,4 +1,4 @@
- # Fight Game, Alexandra Sculley, v1.1
+ # Fight Game, Alexandra Sculley, v1.2
 import random
 # Make characters - Done
     # Assign them different attack, health, and defense stats - Done
@@ -103,6 +103,7 @@ def attackTime():
     superInsult = "You are utter bullshit at this game, go back to the sperm cells that made you."
     if fightStart == "yes":
         if playerAttack == True:
+            print("PLAYER TURN:")
             playerChoice = input("Would you like to fight, heal, check player stats, check CPU stats, or INSULT.\n").lower()
             if playerChoice == "heal":
                 if playerHealth == 180 or playerHealth == 120:
@@ -144,6 +145,7 @@ def attackTime():
                     playerAttack = False
                     cpuAttack = True
         elif cpuAttack == True:
+            print("CPU TURN:")
             cpuChoice = 2
             if cpuHealth < 180 or cpuHealth < 120:
                 cpuChoice = random.randint(1,5)
