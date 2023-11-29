@@ -1,4 +1,4 @@
- # Fight Game, Alexandra Sculley, v1.3
+ # Fight Game, Alexandra Sculley, v1.4
 import random
 # Make characters - Done
     # Assign them different attack, health, and defense stats - Done
@@ -169,6 +169,8 @@ def attackTime():
                 else:
                     ply2Hp = ply2Hp - damageRoll(playerCharacter)
                     print(f"You did {damageRoll(playerCharacter)} damage to {ply2Char}! Leaving them with {ply2Hp} health.\n")
+                    playerAttack = False
+                    ply2Attack = True
             elif playerChoice == "stats":
                 print(f"PLAYER HEALTH: {playerHealth}\n PLAYER STRENGTH: {playerStrength} dph\n PLAYER DEFENSE: {playerDefense}\n")
             elif playerChoice == "other player stats":
@@ -184,17 +186,29 @@ def attackTime():
                     insult = insultList[ranInsult]
                     print(insult)
                     additiveDamage = random.randint(10,30)
-                    cpuHealth = cpuHealth - additiveDamage
-                    print(f"The insult has hurt CPU's ego! CPU takes {additiveDamage} damage leaving it with {cpuHealth} HP!\n")
-                    playerAttack = False
-                    cpuAttack = True
+                    if bot == "on":
+                        cpuHealth = cpuHealth - additiveDamage
+                        print(f"The insult has hurt CPU's ego! CPU takes {additiveDamage} damage leaving it with {cpuHealth} HP!\n")
+                        playerAttack = False
+                        cpuAttack = True
+                    else:
+                        ply2Hp = ply2Hp - additiveDamage
+                        print(f"The insult has hurt {ply2Char}'s ego! PLAYER 2 takes {additiveDamage} damage leaving it with {ply2Hp} HP!\n")
+                        playerAttack = False
+                        ply2Attack = True
                 if rareInsult == 100:
                     print(superInsult)
                     additiveDamage = random.randint(75, 100)
-                    cpuHealth = cpuHealth - additiveDamage
-                    print(f"You've said the super insult, hurting CPU's ego MASSIVELY! CPU takes {additiveDamage} damage leaving it with {cpuHealth} HP!")
-                    playerAttack = False
-                    cpuAttack = True
+                    if bot == "on":
+                        cpuHealth = cpuHealth - additiveDamage
+                        print(f"You've said the super insult, hurting CPU's ego MASSIVELY! CPU takes {additiveDamage} damage leaving it with {cpuHealth} HP!")
+                        playerAttack = False
+                        cpuAttack = True
+                    else:
+                        ply2Hp = ply2Hp - additiveDamage
+                        print(f"You've said the super insult, hurting {ply2Char}'s ego MASSIVELY! PLAYER 2 takes {additiveDamage} damage leaving them with {ply2Hp}HP!")
+                        playerAttack = False
+                        ply2Attack = True
         elif cpuAttack == True and bot == "on":
             print("CPU TURN:")
             cpuChoice = 2
@@ -291,6 +305,9 @@ def damageRoll(char):
     elif char == playerCharacter:
         dmg = random.randint(playerStrength - 5, playerStrength + 5)
         print(dmg)
+    elif char == ply2Char:
+        dmg = random.randint(ply2Stren - 5, ply2Stren + 5)
+        print(dmg)
     return dmg
     
 
@@ -351,12 +368,15 @@ cpuStats = genCpuStats()
 
 cpuHealth = cpuHealth + cpuDefense
 playerHealth = playerHealth + playerDefense
-
-while cpuHealth > 0 or playerHealth > 0:
+ply2Hp = ply2Hp + ply2Def
+while cpuHealth > 0 or playerHealth > 0 or ply2Hp > 0:
     attackTime()
     if cpuHealth <= 0:
         print("You win! Trash cpu.")
         break
     elif playerHealth <= 0:
         print("CPU wins! Trash player.")
+        break
+    elif ply2Hp <= 0:
+        print("Player 1 wins! Trash player 2.")
         break
