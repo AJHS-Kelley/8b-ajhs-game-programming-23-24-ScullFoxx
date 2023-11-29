@@ -1,4 +1,4 @@
- # Fight Game, Alexandra Sculley, v1.4
+ # Fight Game, Alexandra Sculley, v2.0
 import random
 # Make characters - Done
     # Assign them different attack, health, and defense stats - Done
@@ -8,7 +8,7 @@ import random
 # Give CPU a random character - Done
 # Start off with CPU then implement a 2 PLAYER system.
 
-# FUNCTIONS DEFINED
+# ------------------------------------------------------------------------------ DEFINING FUNCTIONS ---------------------------------------------------------------------------------------
 strength = 0
 health = 0
 defense = 0
@@ -26,10 +26,14 @@ ply2Hp = 0
 ply2Def = 0
 ply2Char = ""
 ply2Attack = False
-gameMode = "cpu"
+gameMode = "bot"
 dmg = 0
 bot = "on"
 player2 = "off"
+cpuChar = "N/A"
+
+
+# --------------------------------------------------------------------------- GENERATION FUNCTIONS ---------------------------------------------------------------------------------------
 
 def getChar():
     getNum = random.randint(0, len(characterList) - 1)
@@ -70,9 +74,10 @@ def genStats():
         playerDefense = 30
     else:
         playerDefense = 10
-    print(f"Your health is {playerHealth}")
-    print(f"You do about {playerStrength} damage per hit.")
-    print(f"You have {playerDefense} extra health.\n")
+    print(f"PLAYER 1'S health is {playerHealth}")
+    print(f"PLAYER 1 does about {playerStrength} damage per hit.")
+    print(f"PLAYER 1 has {playerDefense} extra health.\n")
+    print("\n")
     return playerHealth, playerStrength, playerDefense 
 
 def genCpuStats():
@@ -101,6 +106,7 @@ def genCpuStats():
     print(f"CPU's health is {cpuHealth}")
     print(f"CPU's strength is about {cpuStrength} damage per hit.")
     print(f"CPU has {cpuDefense} extra health.")
+    print("\n")
     return cpuHealth, cpuStrength, cpuDefense
 
 def gen2Stats():
@@ -126,10 +132,13 @@ def gen2Stats():
         ply2Def = 30
     else:
         ply2Def = 10
-    print(f"{ply2Char}'s health is {ply2Hp}")
-    print(f"{ply2Char}'s strength is about {ply2Stren} damage per hit.")
-    print(f"{ply2Char} has {ply2Def} extra health.")
+    print(f"PLAYER 2's health is {ply2Hp}")
+    print(f"PLAYER 2's strength is about {ply2Stren} damage per hit.")
+    print(f"PLAYER 2 has {ply2Def} extra health.")
+    print("\n")
     return ply2Hp, ply2Stren, ply2Def
+
+# ----------------------------------------------------------------------------- GAMEPLAY FUNCTION ----------------------------------------------------------------------------------------
 
 
 def attackTime():
@@ -139,7 +148,7 @@ def attackTime():
     superInsult = "You are utter bullshit at this game, go back to the sperm cells that made you."
     if fightStart == "yes":
         if playerAttack == True:
-            print("PLAYER TURN:")
+            print("PLAYER 1's TURN:")
             playerChoice = input("Would you like to fight, heal, check player stats, check other player stats, or INSULT.\n").lower()
             if playerChoice == "heal":
                 if playerHealth == 180 or playerHealth == 120:
@@ -210,7 +219,7 @@ def attackTime():
                         playerAttack = False
                         ply2Attack = True
         elif cpuAttack == True and bot == "on":
-            print("CPU TURN:")
+            print("CPU's TURN:")
             cpuChoice = 2
             if cpuHealth < 180 or cpuHealth < 120:
                 cpuChoice = random.randint(1,5)
@@ -250,7 +259,7 @@ def attackTime():
                     playerAttack = True
                     cpuAttack = False
         elif ply2Attack == True and player2 == "on":
-            print("PLAYER TWO TURN:")
+            print("PLAYER 2's TURN:")
             player2Choice = input("Would you like to fight, heal, check player stats, check other player stats, or INSULT.\n").lower()
             if player2Choice == "heal":
                 if ply2Hp == 180 or ply2Hp == 120:
@@ -265,7 +274,7 @@ def attackTime():
                     playerAttack = True
             elif player2Choice == "fight":
                 playerHealth = playerHealth - damageRoll(ply2Char)
-                print(f"You did {damageRoll(ply2Char)} damage to {playerCharacter}! Leaving them with {cpuHealth} health.\n")
+                print(f"You did {damageRoll(ply2Char)} damage to {playerCharacter}! Leaving them with {playerHealth} health.\n")
                 ply2Attack = False
                 playerAttack = True
             elif player2Choice == "stats":
@@ -298,7 +307,7 @@ def attackTime():
         print("y")
     
 def damageRoll(char):
-    global playerStrength, cpuStrength
+    global playerStrength, cpuStrength, cpuChar, playerCharacter, ply2Char, ply2Stren
     if char == cpuChar:
         dmg = random.randint(cpuStrength - 5, cpuStrength + 5)
         print(dmg)
@@ -311,7 +320,7 @@ def damageRoll(char):
     return dmg
     
 
-# ~~~ BEGINNING OF THE GAME TEXT ~~~
+# ------------------------------------------------------------------------- FUNCTION CALLS/GAME FUNCTION ------------------------------------------------------------------------------
 print("""
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     |                             |
@@ -339,8 +348,8 @@ while picked == False:
     else:
         picked = True
         print(f"You have selected {playerCharacter}")
-
-gameMode = input("Would you like to PVP or play against CPU?").lower()
+playerStats = genStats()
+gameMode = input("Would you like to PVP or play against CPU?\n").lower()
 if gameMode == "cpu":
     bot = "on"
     player2 = "off"
@@ -353,30 +362,42 @@ elif gameMode == "pvp":
     picked2 = False
     while picked2 == False:
         print(characterList)
-        ply2Char = input("Please type in a characters name to select them.\n").upper()
+        ply2Char = input("Please type in a characters name PLAYER 2 to select them.\n").upper()
         if ply2Char not in characterList:
             print(characterList)
             print("Please select a character from the list.\n")
         else:
             picked2 = True
-            print(f"You have selected{ply2Char}")
-ply2Stats = gen2Stats()
+            print(f"You have selected {ply2Char}")
+
+if bot == "on":
+    cpuChar = getChar()
+    print(f"CPU is character {cpuChar}")
+    cpuStats = genCpuStats()
+else:
+    ply2Stats = gen2Stats()
+
 playerStats = genStats()
-cpuChar = getChar()
-print(f"CPU is character {cpuChar}")
-cpuStats = genCpuStats()
+
 
 cpuHealth = cpuHealth + cpuDefense
 playerHealth = playerHealth + playerDefense
 ply2Hp = ply2Hp + ply2Def
+
+# ------------------------------------------------------------------------------ END OF GAME -----------------------------------------------------------------------------------------------
+
 while cpuHealth > 0 or playerHealth > 0 or ply2Hp > 0:
     attackTime()
-    if cpuHealth <= 0:
-        print("You win! Trash cpu.")
-        break
-    elif playerHealth <= 0:
-        print("CPU wins! Trash player.")
-        break
-    elif ply2Hp <= 0:
-        print("Player 1 wins! Trash player 2.")
-        break
+    if bot == "on":
+        if cpuHealth <= 0:
+            print("You win! Trash cpu.")
+            break
+        elif playerHealth <= 0:
+            print("CPU wins! Trash player.")
+            break
+    else:
+        if ply2Hp <= 0:
+            print("Player 1 wins! Trash player 2.")
+            break
+        elif playerHealth <= 0:
+            print("Player 2 wins! Trash player 1.")
