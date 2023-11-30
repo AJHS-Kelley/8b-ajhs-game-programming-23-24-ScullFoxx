@@ -400,4 +400,4 @@ while cpuHealth > 0 or playerHealth > 0 or ply2Hp > 0:
             print("Player 1 wins! Trash player 2.")
             break
         elif playerHealth <= 0:
-            print("Player 2 wins! Trash player 1.")
+            print("Player 2 wins! Trash player 1.") #schlong
