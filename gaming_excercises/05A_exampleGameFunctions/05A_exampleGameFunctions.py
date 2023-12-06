@@ -1,4 +1,4 @@
- # Fight Game, Alexandra Sculley, v2.0
+ # Fight Game, Alexandra Sculley, v2.1
 import random
 # Make characters - Done
     # Assign them different attack, health, and defense stats - Done
@@ -143,9 +143,9 @@ def gen2Stats():
 
 def attackTime():
     global playerCharacter, cpuChar, playerStrength, playerDefense, playerHealth, cpuStrength, cpuDefense, cpuHealth, playerAttack, cpuAttack, ply2Attack, ply2Char, ply2Attack, ply2Def, ply2Hp, ply2Stats, ply2Stren
-    fightStart = input("Fight?\n")
-    insultList = ["Nerd.", "What's on your nose? My dick!", "You're going on my poopyhead list", "You're going on my reyp list", "Ur mom", "Baldy", "One two buckle my shoe three four buckle some more five six nike kicks head ahh", "Darth vader lookin ahh", "Where's waldo- Where's your dad!?", "Hey look up. Why's this dumbass lookin up?", "First I gyatt your brother, now I rizz you! Skibidi my friend!", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "Say what if you're gay.", "*a mirror* . This you lil bro?"]
-    superInsult = "You are utter bullshit at this game, go back to the sperm cells that made you."
+    fightStart = input("Fight? (PLEASE INPUT YES OR NO)\n")
+    insultList = ["Nerd.", "You're going on my poopyhead list", "You're going on my hit list", "Ur mom", "Baldy", "One two buckle my shoe three four buckle some more five six nike kicks head ahh", "Darth vader lookin ahh", "Where's waldo- Where's your dad!?", "Hey look up. Why's this idiot lookin up?", "First I gyatt your brother, now I rizz you! Skibidi my friend!", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "Say what if you're gay.", "*a mirror* . This you lil bro?"]
+    superInsult = "Go to the tree that supplies you oxygen and apologize for your existence."
     if fightStart == "yes":
         if playerAttack == True:
             print("PLAYER 1's TURN:")
@@ -303,8 +303,6 @@ def attackTime():
 
     elif fightStart == "no":
         print("You have chosen not to fight. Game over pacifist.") 
-    else:
-        print("y") # FIX THIS LINE.  
     
 def damageRoll(char):
     global playerStrength, cpuStrength, cpuChar, playerCharacter, ply2Char, ply2Stren
