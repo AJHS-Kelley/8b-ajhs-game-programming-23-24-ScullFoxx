@@ -304,7 +304,7 @@ def attackTime():
     elif fightStart == "no":
         print("You have chosen not to fight. Game over pacifist.") 
     else:
-        print("y")
+        print("y") # FIX THIS LINE.  
     
 def damageRoll(char):
     global playerStrength, cpuStrength, cpuChar, playerCharacter, ply2Char, ply2Stren
