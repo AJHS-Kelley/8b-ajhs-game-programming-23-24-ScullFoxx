@@ -1,10 +1,12 @@
-# Object-Oriented Programming, Alexandra Sculley, v0.4
+# Object-Oriented Programming, Alexandra Sculley, v0.5
 
 class Person: # Use PascalCase for ClassNames
     def __init__(self, name, age, weight): 
         self.name = name
         self.age = age
         self.weight = weight
+        self.weakness = None
+        self.nemesis = None
 
     # To String Function -- How the object appears as a string.
     def __str__(self):
