@@ -1,4 +1,4 @@
-# DNA Replication Game, Sculley Alexandra, v1.0
+# DNA Replication Game, Sculley Alexandra, v1.1
 
 # Import Entire Needed Modules -- Get the whole tool box.
 import time, datetime
@@ -59,7 +59,7 @@ def verifySequence(dnaSequence: str, rnaSequence: str) -> bool:
             print("They do not match because no base is True.\n")
     return isMatch
 
-def calcScore(rnaSequence: str, rnaTime: float) -> None:
+def calcScore(rnaSequence: str, rnaTime: float) -> int:
     score = 0
     if rnaTime < 3.0:
         score += 1000000
@@ -77,14 +77,15 @@ def calcScore(rnaSequence: str, rnaTime: float) -> None:
     else:
         scoreMulti = 1
     score *= scoreMulti
+    return score
 
-def saveScore(dnaSequence: str, rnaSequence: str, rnaTime: float, score: int) ->  None:
+def saveScore(dnaSequence: str, rnaSequence: str, rnaTime: float, score: float) ->  None:
     playerName = input("What is your first name?")
     lastName = input("What is your last name?")
     fullName = playerName + " " + lastName
 
     fileName = "dnaReplicationScore" + fullName + ".txt"
-    saveData = open(fileName, "w")
+    saveData = open(fileName, "a")
     # File Modes
     # "x" mode -- Create file, if file exists, exit with error.
     # "w" mode -- Create file, if file exists, overwrite it.

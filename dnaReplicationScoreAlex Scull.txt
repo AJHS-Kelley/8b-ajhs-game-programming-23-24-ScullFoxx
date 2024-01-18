@@ -1,6 +1,12 @@
-DNA Sequence: GC
-RNA Sequence: CG
-Transcription Time: 2.223781108856201
+DNA Sequence: CTG
+RNA Sequence: GAC
+Transcription Time: 3.215925693511963
 Score: None
 Alex Scull
-2024-01-18 14:02:55.733880
+2024-01-18 14:04:51.274495
+DNA Sequence: AT
+RNA Sequence: UA
+Transcription Time: 1.3823375701904297
+Score: 1000000
+Alex Scull
+2024-01-18 14:06:28.533870
