@@ -1,4 +1,4 @@
-# DNA Replication Game, Sculley Alexandra, v0.2
+# DNA Replication Game, Sculley Alexandra, v1.0
 
 # Import Entire Needed Modules -- Get the whole tool box.
 import time, datetime
@@ -26,7 +26,7 @@ def genDNA() -> str:
 
 
 
-def genRNA(dnaSequence: str) -> tuple:
+def doTranscription(dnaSequence: str) -> tuple:
     print(f"The DNA Sequence is {dnaSequence}.\n")
     print("You will now generate the RNA sequence that would match.\n")
     print("Please remember, in the RNA sequence Uracil pairs with Adenine from the DNA sequence.\n")
@@ -41,6 +41,63 @@ def genRNA(dnaSequence: str) -> tuple:
     # Tuples are UNCHANGEABLE -- you cannot add, modify, or delete after creating.
     # Tuples CAN have duplicate values.
 
+def verifySequence(dnaSequence: str, rnaSequence: str) -> bool:
+    isMatch = False
+    if len(dnaSequence) != len(rnaSequence):
+        print("Since the Sequences are not equal, they do not match.\n")
+        return isMatch
+    for dnaBase, rnaBase in zip (dnaSequence, rnaSequence):
+        if dnaBase == "A" and rnaBase == "U":
+            isMatch = True
+        elif dnaBase == "C" and rnaBase == "G":
+            isMatch = True
+        elif dnaBase == "G" and rnaBase == "C":
+            isMatch = True
+        elif dnaBase == "T" and rnaBase == "A":
+            isMatch = True
+        else:
+            print("They do not match because no base is True.\n")
+    return isMatch
+
+def calcScore(rnaSequence: str, rnaTime: float) -> None:
+    score = 0
+    if rnaTime < 3.0:
+        score += 1000000
+    elif rnaTime < 15.0:
+        score += 5000
+    else:
+        score += 25000
+        print("You tried your best.\n")
+
+    scoreMulti = 0
+    if len(rnaSequence)>= 10:
+        scoreMulti = 3
+    elif len(rnaSequence)>= 5:
+        scoreMulti = 2
+    else:
+        scoreMulti = 1
+    score *= scoreMulti
+
+def saveScore(dnaSequence: str, rnaSequence: str, rnaTime: float, score: int) ->  None:
+    playerName = input("What is your first name?")
+    lastName = input("What is your last name?")
+    fullName = playerName + " " + lastName
+
+    fileName = "dnaReplicationScore" + fullName + ".txt"
+    saveData = open(fileName, "w")
+    # File Modes
+    # "x" mode -- Create file, if file exists, exit with error.
+    # "w" mode -- Create file, if file exists, overwrite it.
+    # "a" mode -- Creat file, if file exists, append it.
+    saveData.write(f"DNA Sequence: {dnaSequence}\nRNA Sequence: {rnaSequence}\n")
+    saveData.write(f"Transcription Time: {rnaTime}\n")
+    saveData.write(f"Score: {score}\n")
+    saveData.write(f"{fullName}\n")
+    saveData.write(f"{datetime.datetime.now()}\n")
+    saveData.close()
+
 dna = genDNA()
-rna = genRNA(dna)
-print(rna)
+rna = doTranscription(dna)
+if verifySequence(dna, rna[0]):
+    score = (calcScore(rna[0], rna[1]))
+    saveScore(dna, rna[0], rna[1], score)

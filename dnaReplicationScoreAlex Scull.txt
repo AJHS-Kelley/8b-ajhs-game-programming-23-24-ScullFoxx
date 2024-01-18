@@ -1,0 +1,6 @@
+DNA Sequence: GC
+RNA Sequence: CG
+Transcription Time: 2.223781108856201
+Score: None
+Alex Scull
+2024-01-18 14:02:55.733880
