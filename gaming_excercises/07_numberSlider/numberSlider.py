@@ -1,4 +1,4 @@
-# Number Slider. Alexandra, Sculley. Based on a project by Al Sweigart, v0.2
+# Number Slider. Alexandra, Sculley. Based on a project by Al Sweigart, v0.3
 
 import sys, random, pygame
 # sys module provides access to system resources (i.e Operating System Commands)
@@ -23,3 +23,11 @@ WHITE = (255, 255, 255)
 BRIGHTBLUE = (0, 50, 255)
 DARKTURQUOISE = (3, 54, 73)
 GREEN = (0, 204, 0)
+
+# BOARD DESIGN SETUP
+BGCOLOR = DARKTURQUOISE
+TILECOLOR = GREEN
+TEXTCOLOR = WHITE
+BORDERCOLOR = BRIGHTBLUE
+BASICFONTSIZE = 20 # pixels 
+
