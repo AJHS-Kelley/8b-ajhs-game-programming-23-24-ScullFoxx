@@ -1,4 +1,4 @@
-# DNA Replication Game, Sculley Alexandra, v1.1
+# DNA Replication Game, Sculley Alexandra, v1.2
 
 # Import Entire Needed Modules -- Get the whole tool box.
 import time, datetime
@@ -7,6 +7,7 @@ import time, datetime
 from random import choice
 
 # Store the DNA Bases
+i = 0
 dnaBases = ["A", "T", "C", "G"]
 
 # GAME FUNCTIONS
@@ -26,20 +27,27 @@ def genDNA() -> str:
 
 
 
-def doTranscription(dnaSequence: str) -> tuple:
+def doTranscription(dnaSequence: str, i: int) -> tuple:
     print(f"The DNA Sequence is {dnaSequence}.\n")
     print("You will now generate the RNA sequence that would match.\n")
     print("Please remember, in the RNA sequence Uracil pairs with Adenine from the DNA sequence.\n")
     rnaStart = time.time() # time.time() returns the number of seconds since 00:00:00 UTC Jan. 01, 1970
-    rnaSequence = input("Please enter the matching RNA sequence. Leave no spaces! Then press enter.\n").upper()
+    rnaSequence = input("Please enter the matching RNA sequence. Please leave no spaces! Then press enter.\n").upper()#.split()
     rnaStop = time.time()
     rnaTime = rnaStop - rnaStart
-
-
+    # while len(rnaSequence) > i:
+    #     if rnaSequence[i] not in "AUGC":
+    #         print(f"RNA {rnaSequence[i]} is wrong you lose")
+    #         break
+    #     else:
+    #         i += 1
+    #         continue
     return (rnaSequence, rnaTime)
     # Tuples are ORDERED -- you can reference items with the index.
     # Tuples are UNCHANGEABLE -- you cannot add, modify, or delete after creating.
     # Tuples CAN have duplicate values.
+
+
 
 def verifySequence(dnaSequence: str, rnaSequence: str) -> bool:
     isMatch = False
@@ -80,8 +88,8 @@ def calcScore(rnaSequence: str, rnaTime: float) -> int:
     return score
 
 def saveScore(dnaSequence: str, rnaSequence: str, rnaTime: float, score: float) ->  None:
-    playerName = input("What is your first name?")
-    lastName = input("What is your last name?")
+    playerName = input("What is your first name?\n")
+    lastName = input("What is your last name?\n")
     fullName = playerName + " " + lastName
 
     fileName = "dnaReplicationScore" + fullName + ".txt"
@@ -98,7 +106,7 @@ def saveScore(dnaSequence: str, rnaSequence: str, rnaTime: float, score: float) 
     saveData.close()
 
 dna = genDNA()
-rna = doTranscription(dna)
+rna = doTranscription(dna, i)
 if verifySequence(dna, rna[0]):
     score = (calcScore(rna[0], rna[1]))
     saveScore(dna, rna[0], rna[1], score)

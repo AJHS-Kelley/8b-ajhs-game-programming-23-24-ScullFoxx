@@ -1,0 +1,6 @@
+DNA Sequence: C
+RNA Sequence: G
+Transcription Time: 1.1663298606872559
+Score: 1000000
+al sc
+2024-01-22 13:34:26.426225
