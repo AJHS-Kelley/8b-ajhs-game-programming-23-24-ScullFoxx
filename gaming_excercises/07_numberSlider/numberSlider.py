@@ -1,4 +1,4 @@
-# Number Slider. Alexandra, Sculley. Based on a project by Al Sweigart, v0.4
+# Number Slider. Alexandra, Sculley. Based on a project by Al Sweigart, v0.5
 
 import sys, random, pygame
 # sys module provides access to system resources (i.e Operating System Commands)
