@@ -1,4 +1,4 @@
-# KILLER GARY!111!!1 Sculley, Alexandra, v1.0
+# KILLER GARY!111!!1 Sculley, Alexandra, v1.1
 
 import pygame 
 from sys import exit
@@ -15,14 +15,15 @@ pygame.display.set_caption('KILLER GARY!1!111!!!!')
 clock = pygame.time.Clock()
 testFont = pygame.font.Font(None, 50)
 textColor = (64,64,64)
-gameActive = True
+gameActive = False
 startTime = 0
+#playerList = ['Images/Littlebro.png']
 
 pink = (255, 200, 200)
 #testSurface = pygame.Surface((100,200))
 #testSurface.fill(pink)
-skySurface = pygame.image.load('Images/Sky.png').convert()
-groundSurface = pygame.image.load('Images/Ground.jfif').convert()
+skySurface = pygame.image.load('Images/OceanSky.png').convert()
+groundSurface = pygame.image.load('Images/Sand.jpg').convert()
 
 titleSurface = testFont.render('Killer Gary', False, textColor)
 titleRectangle = titleSurface.get_rect(topleft = (325,50))
@@ -30,18 +31,28 @@ titleRectangle = titleSurface.get_rect(topleft = (325,50))
 # scoreSurface = testFont.render('0', False, 'Blue')
 # scoreRectanlge = scoreSurface.get_rect(center = (760, 45))
 
-deathSurface = testFont.render('GAME OVER! Restart? (PRESS SPACE)', False, 'Black')
-deathRectangle = deathSurface.get_rect(topleft = (100, 50))
-
+# GARYYY
 snailSurface = pygame.image.load('Images/snail.png').convert_alpha()
 snailRectangle = snailSurface.get_rect(midbottom = (600,300))
-
+# PLAYER
 playerSurface = pygame.image.load('Images/Littlebro.png').convert_alpha()
 playerRectangle = playerSurface.get_rect(midbottom = (80,300))
 playerGravity = 0
 
-deathPlayerSurface = pygame.image.load('Images/PETER NO.jpg').convert_alpha()
-deathPlayerRectangle = deathPlayerSurface.get_rect(midbottom = (80, 300))
+
+# Intro Screen
+playerStand = pygame.image.load('Images/snail.png')
+playerStand = pygame.transform.rotozoom(playerStand,0 ,2)
+playerStandRectangle = playerStand.get_rect(center = (400, 200))
+
+
+# DEATH SCREEN
+# deathSurface = testFont.render('GAME OVER! Restart? (PRESS SPACE)', False, 'Black')
+# deathRectangle = deathSurface.get_rect(topleft = (100, 50))
+
+# deathPlayerSurface = pygame.image.load('Images/PETER NO.jpg').convert_alpha()
+# deathPlayerRectangle = deathPlayerSurface.get_rect(midbottom = (80, 300))
+
 
 while True:
     for event in pygame.event.get():
@@ -59,6 +70,7 @@ while True:
                 gameActive = True
                 snailRectangle.left = 800
                 startTime = int(pygame.time.get_ticks() / 1000)
+            
 
     # draw all our elements
     # update everything
@@ -87,9 +99,12 @@ while True:
         if snailRectangle.colliderect(playerRectangle):
             gameActive = False
     else:
-        screen.blit(skySurface, (0,0))
-        screen.blit(deathPlayerSurface, deathPlayerRectangle)
-        screen.blit(deathSurface, deathRectangle)
+        # screen.blit(skySurface, (0,0))
+        # screen.blit(deathPlayerSurface, deathPlayerRectangle)
+        screen.fill((94, 129, 162))
+        screen.blit(playerStand, playerStandRectangle)
+        screen.blit(titleSurface, (1,1))
+        # screen.blit(deathSurface, deathRectangle)
 
 
 
