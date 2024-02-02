@@ -1,4 +1,4 @@
-# KILLER GARY!111!!1 Sculley, Alexandra, v0.5
+# KILLER GARY!111!!1 Sculley, Alexandra, v0.6
 
 import pygame 
 from sys import exit
@@ -10,13 +10,14 @@ clock = pygame.time.Clock()
 testFont = pygame.font.Font(None, 50)
 textColor = (64,64,64)
 
-
-pink = (255, 100, 200)
+pink = (255, 200, 200)
 #testSurface = pygame.Surface((100,200))
 #testSurface.fill(pink)
 skySurface = pygame.image.load('Images/Sky.png').convert()
 groundSurface = pygame.image.load('Images/Ground.jfif').convert()
-titleSurface = testFont.render('Killer Gary', False, 'Blue')
+
+titleSurface = testFont.render('Killer Gary', False, textColor)
+titleRectangle = titleSurface.get_rect(topleft = (325,50))
 
 scoreSurface = testFont.render('0', False, 'Blue')
 scoreRectanlge = scoreSurface.get_rect(center = (760, 45))
@@ -38,9 +39,11 @@ while True:
     # update everything
     screen.blit(skySurface, (0,0))
     screen.blit(groundSurface, (0,200))
-    screen.blit(titleSurface, (325, 50))
-    pygame.draw.rect(screen, pink, scoreRectanlge)
-    pygame.draw.rect(screen, pink, scoreRectanlge,10)
+    pygame.draw.rect(screen, '#c0e8ec', scoreRectanlge)
+    pygame.draw.rect(screen, '#c0e8ec', scoreRectanlge,10)
+    pygame.draw.rect(screen, '#c0e8ec', titleRectangle)
+    pygame.draw.rect(screen, '#c0e8ec', titleRectangle,10)
+    screen.blit(titleSurface, titleRectangle)
     
     screen.blit(scoreSurface, scoreRectanlge)
     snailRectangle.x -= 4
