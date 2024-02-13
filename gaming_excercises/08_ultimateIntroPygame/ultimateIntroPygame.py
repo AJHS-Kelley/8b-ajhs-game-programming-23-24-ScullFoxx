@@ -15,7 +15,7 @@ pygame.display.set_caption('KILLER GARY!1!111!!!!')
 clock = pygame.time.Clock()
 testFont = pygame.font.Font(None, 50)
 textColor = (64,64,64)
-gameActive = False
+gameActive = True
 startTime = 0
 #playerList = ['Images/Littlebro.png']
 
@@ -47,11 +47,11 @@ playerStandRectangle = playerStand.get_rect(center = (400, 200))
 
 
 # DEATH SCREEN
-# deathSurface = testFont.render('GAME OVER! Restart? (PRESS SPACE)', False, 'Black')
-# deathRectangle = deathSurface.get_rect(topleft = (100, 50))
+deathSurface = testFont.render('GAME OVER! Restart? (PRESS SPACE)', False, 'Black')
+deathRectangle = deathSurface.get_rect(topleft = (100, 50))
 
-# deathPlayerSurface = pygame.image.load('Images/PETER NO.jpg').convert_alpha()
-# deathPlayerRectangle = deathPlayerSurface.get_rect(midbottom = (80, 300))
+deathPlayerSurface = pygame.image.load('Images/PETER NO.jpg').convert_alpha()
+deathPlayerRectangle = deathPlayerSurface.get_rect(midbottom = (80, 300))
 
 
 while True:
@@ -99,12 +99,12 @@ while True:
         if snailRectangle.colliderect(playerRectangle):
             gameActive = False
     else:
-        # screen.blit(skySurface, (0,0))
-        # screen.blit(deathPlayerSurface, deathPlayerRectangle)
-        screen.fill((94, 129, 162))
-        screen.blit(playerStand, playerStandRectangle)
-        screen.blit(titleSurface, (1,1))
-        # screen.blit(deathSurface, deathRectangle)
+        screen.blit(skySurface, (0,0))
+        screen.blit(deathPlayerSurface, deathPlayerRectangle)
+        #screen.fill((94, 129, 162))
+        #screen.blit(playerStand, playerStandRectangle)
+        #screen.blit(titleSurface, (1,1))
+        screen.blit(deathSurface, deathRectangle)
 
 
 
