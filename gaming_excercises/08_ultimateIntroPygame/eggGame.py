@@ -4,12 +4,19 @@ import pygame
 from sys import exit
 pygame.init()
 eggPress = 0
+startTime = 0
 
 screen = pygame.display.set_mode((800,400))
 clock = pygame.time.Clock()
 gameActive = True
 pygame.display.set_caption('Egg Clicker!')
 textFont = pygame.font.Font(None, 50)
+
+def displayTimer():
+    currentTimer = int(pygame.time.get_ticks() / 1000)
+    timerSurface = textFont.render(f'{currentTimer}', False, (255,255,255))
+    timerRectangle = timerSurface.get_rect(center = (400, 300))
+    screen.blit(timerSurface, timerRectangle)
 
 # Money/Score
 
@@ -20,7 +27,7 @@ eggSurface = pygame.transform.rotozoom(eggSurface, 1, 2.5)
 eggRect = eggSurface.get_rect(center = (400,200))
 
 # Game Text
-gamSurf = textFont.render('Please click the egg!', False, (255, 255, 255))
+gamSurf = textFont.render('Please click the egg as much in 10 seconds!', False, (255, 255, 255))
 gamRect = gamSurf.get_rect(center = (400, 350))
 
 # Restart
@@ -42,6 +49,7 @@ while True:
         else:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 gameActive = True
+                startTime = int(pygame.time.get_ticks() / 1000)
                 eggPress = 0
             
 
@@ -49,6 +57,7 @@ while True:
     # update everything
     if gameActive:
         screen.fill((100, 135, 155))
+        displayTimer()
         screen.blit(eggSurface, eggRect)
         screen.blit(moneySurface, moneyRect)
         screen.blit(gamSurf, gamRect)
