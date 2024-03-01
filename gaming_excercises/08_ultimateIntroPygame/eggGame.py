@@ -1,4 +1,4 @@
-# Just want an egg clicker for right now v0.5
+# Just want an egg clicker for right now v0.6
 
 import pygame 
 from sys import exit
