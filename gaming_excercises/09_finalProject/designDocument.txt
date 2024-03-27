@@ -3,3 +3,18 @@ theme: dark setting
 
 Win Condition(s): Get the treasure
 Lose Condition(s): die
+
+Levels / Screens:
+    -- one small dungeon with 1 objective
+    -- one big dungeon with multiple objectives
+
+Objectives / Eneimes / Obstacles:
+    -- Spiders & Skeletons
+    -- Get the objection
+    -- Locked doors
+
+Items / Equipment / Objects:
+    -- keys
+    -- Doors 
+    -- Health
+    -- objective
