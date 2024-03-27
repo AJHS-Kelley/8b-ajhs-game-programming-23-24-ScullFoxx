@@ -1,0 +1,5 @@
+Game Genre / Type: dungeon explorer
+theme: dark setting
+
+Win Condition(s): Get the treasure
+Lose Condition(s): die

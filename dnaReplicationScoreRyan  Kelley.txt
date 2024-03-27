@@ -1,6 +1,0 @@
-DNA Sequence: TGCCCAGACC
-RNA Sequence: ACGGGUCUGG
-Transcription Time: 20.724560260772705
-Score: 75000
-Ryan  Kelley
-2024-02-01 14:01:18.963884
