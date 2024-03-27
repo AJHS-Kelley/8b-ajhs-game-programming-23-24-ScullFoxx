@@ -18,3 +18,11 @@ Items / Equipment / Objects:
     -- Doors 
     -- Health
     -- objective
+
+Difficulty Changes:
+    -- Small dungeon
+    -- Big dungeon
+
+Controls:
+    -- WASD for movement
+    -- E to interact with doors & keys
