@@ -33,13 +33,13 @@ screen = pygame.display.set_mode((x, y))
 
 barSurf = pygame.image.load('img/bar.png')
 barRect = barSurf.get_rect(topleft = (0,730))
-button1Surf = pygame.image.load('img/button.png')
+button1Surf = pygame.image.load('img/buttonUp.png')
 button1Rect = button1Surf.get_rect(center = (260, 830))
-button2Surf = pygame.image.load('img/button.png')
+button2Surf = pygame.image.load('img/buttonDown.png')
 button2Rect = button2Surf.get_rect(center = (260, 990))
-button3Surf = pygame.image.load('img/button.png')
+button3Surf = pygame.image.load('img/buttonLeft.png')
 button3Rect = button3Surf.get_rect(center = (100, 990))
-button4Surf = pygame.image.load('img/button.png')
+button4Surf = pygame.image.load('img/buttonRight.png')
 button4Rect = button4Surf.get_rect(center = (420, 990))
 slot1Surf = pygame.image.load('img/slot.png')
 slot1Rect = slot1Surf.get_rect(center = (1800, 990))
@@ -53,6 +53,8 @@ slot5Surf = pygame.image.load('img/slot.png')
 slot5Rect = slot5Surf.get_rect(center = (1480, 990))
 slot6Surf = pygame.image.load('img/slot.png')
 slot6Rect = slot5Surf.get_rect(center = (1480, 830))
+rulerSurf = pygame.image.load('img/stick.png')
+rulerRect = rulerSurf.get_rect(center = (900, 720))
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -69,6 +71,7 @@ while True:
     screen.blit(slot4Surf, slot4Rect)
     screen.blit(slot5Surf, slot5Rect)
     screen.blit(slot6Surf, slot6Rect)
+    screen.blit(rulerSurf, rulerRect)
     
 
 
