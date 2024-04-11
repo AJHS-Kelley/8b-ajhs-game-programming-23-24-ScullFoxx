@@ -3,7 +3,6 @@
 import pygame, sys, random 
 from sys import exit
 clock = pygame.time.Clock()
-
 resolution = 1 # 0 = Low resolution (800, 600), 1 = high resolution (1920, 1080)
 if resolution == 0:
     x = 800
@@ -49,14 +48,14 @@ screen = pygame.display.set_mode((x, y))
 
 barSurf = pygame.image.load('img/bar.png')
 barRect = barSurf.get_rect(topleft = (0,730))
-button1Surf = pygame.image.load('img/buttonUp.png')
-button1Rect = button1Surf.get_rect(center = (xButOp1, yButOp1))
-button2Surf = pygame.image.load('img/buttonDown.png')
-button2Rect = button2Surf.get_rect(center = (xButOp1, yButOp2))
-button3Surf = pygame.image.load('img/buttonLeft.png')
-button3Rect = button3Surf.get_rect(center = (xButOp2, yButOp2))
-button4Surf = pygame.image.load('img/buttonRight.png')
-button4Rect = button4Surf.get_rect(center = (xButOp3, yButOp2))
+buttonUPSurf = pygame.image.load('img/buttonUp.png')
+buttonUPRect = buttonUPSurf.get_rect(center = (xButOp1, yButOp1))
+buttonDOWNSurf = pygame.image.load('img/buttonDown.png')
+buttonDOWNRect = buttonDOWNSurf.get_rect(center = (xButOp1, yButOp2))
+buttonLEFTSurf = pygame.image.load('img/buttonLeft.png')
+buttonLEFTRect = buttonLEFTSurf.get_rect(center = (xButOp2, yButOp2))
+buttonRIGHTSurf = pygame.image.load('img/buttonRight.png')
+buttonRIGHTRect = buttonRIGHTSurf.get_rect(center = (xButOp3, yButOp2))
 slot1Surf = pygame.image.load('img/slot.png')
 slot1Rect = slot1Surf.get_rect(center = (xSlotOp1, yButOp2))
 slot2Surf = pygame.image.load('img/slot.png')
@@ -71,18 +70,30 @@ slot6Surf = pygame.image.load('img/slot.png')
 slot6Rect = slot5Surf.get_rect(center = (xSlotOp3, yButOp1))
 #rulerSurf = pygame.image.load('img/stick.png')
 #rulerRect = rulerSurf.get_rect(topleft = (0, 720))
-gameScreen = pygame.image.load('img/gameScreen2.png')
-gameRect = gameScreen.get_rect(bottomleft = (460,730))
+gameScreen = pygame.image.load('img/DungeonRoom.png')
+gameRect = gameScreen.get_rect(bottomleft = (600,730))
+playerSurf = pygame.image.load('img/slot.png')
+playerRect = playerSurf.get_rect(center = (900, 200))
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if buttonUPRect.collidepoint(event.pos):
+                playerRect.y -= 10
+            if buttonDOWNRect.collidepoint(event.pos):
+                playerRect.y += 50
+            if buttonLEFTRect.collidepoint(event.pos):
+                playerRect.x -= 50
+            if buttonRIGHTRect.collidepoint(event.pos):
+                playerRect.x += 50
+
     #screen.blit(barSurf, barRect)
-    screen.blit(button1Surf, button1Rect)
-    screen.blit(button2Surf, button2Rect)
-    screen.blit(button3Surf, button3Rect)
-    screen.blit(button4Surf, button4Rect)
+    screen.blit(buttonUPSurf, buttonUPRect)
+    screen.blit(buttonDOWNSurf, buttonDOWNRect)
+    screen.blit(buttonLEFTSurf, buttonLEFTRect)
+    screen.blit(buttonRIGHTSurf, buttonRIGHTRect)
     screen.blit(slot1Surf, slot1Rect)
     screen.blit(slot2Surf, slot2Rect)
     screen.blit(slot3Surf, slot3Rect)
@@ -91,6 +102,7 @@ while True:
     screen.blit(slot6Surf, slot6Rect)
  #   screen.blit(rulerSurf, rulerRect)
     screen.blit(gameScreen, gameRect)
+    screen.blit(playerSurf, playerRect)
 
 
 
