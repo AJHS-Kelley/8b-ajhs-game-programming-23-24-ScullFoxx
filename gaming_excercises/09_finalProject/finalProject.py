@@ -9,7 +9,7 @@ if resolution == 0:
     y = 600
     xButOp1 = 200
     yButOp1 = 400
-    xButOp2 = 1
+    xButOp2 = 100
     yButOp2 = 1
     xButOp3 = 1
     xSlotOp1 = 1
@@ -76,9 +76,12 @@ playerSurf = pygame.image.load('img/slot.png')
 playerRect = playerSurf.get_rect(center = (900, 200))
 
 if resolution == 0:
-    pass
-elif resolution == 1:
-    pass
+    gameScreen = pygame.transform.rotozoom(gameScreen, 1, 0.5)
+    buttonUPSurf = pygame.transform.rotozoom(buttonUPSurf, 1, 0.7)
+    buttonDOWNSurf = pygame.transform.rotozoom(buttonDOWNSurf, 1, 0.7)
+    buttonLEFTSurf = pygame.transform.rotozoom(buttonLEFTSurf, 1, 0.7)
+    buttonRIGHTSurf = pygame.transform.rotozoom(buttonRIGHTSurf, 1, 0.7)
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
