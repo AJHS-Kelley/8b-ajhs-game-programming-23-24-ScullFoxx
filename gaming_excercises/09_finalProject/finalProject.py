@@ -3,12 +3,12 @@
 import pygame, sys, random 
 from sys import exit
 clock = pygame.time.Clock()
-resolution = 1 # 0 = Low resolution (800, 600), 1 = high resolution (1920, 1080)
+resolution = 0 # 0 = Low resolution (800, 600), 1 = high resolution (1920, 1080)
 if resolution == 0:
     x = 800
     y = 600
-    xButOp1 = 100
-    yButOp1 = 500
+    xButOp1 = 200
+    yButOp1 = 400
     xButOp2 = 1
     yButOp2 = 1
     xButOp3 = 1
@@ -74,6 +74,11 @@ gameScreen = pygame.image.load('img/DungeonRoom.png')
 gameRect = gameScreen.get_rect(bottomleft = (600,730))
 playerSurf = pygame.image.load('img/slot.png')
 playerRect = playerSurf.get_rect(center = (900, 200))
+
+if resolution == 0:
+    pass
+elif resolution == 1:
+    pass
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
