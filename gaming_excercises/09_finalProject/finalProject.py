@@ -4,8 +4,7 @@ import pygame, sys, random
 from sys import exit
 clock = pygame.time.Clock()
 
-def clockyCounty():
-    currentTimer = int(pygame.time.get_ticks() / 1000)
+currentTimer = int(pygame.time.get_ticks() / 1000)
 resolution = 0 # 0 = Low resolution (800, 600), 1 = high resolution (1920, 1080)
 if resolution == 0:
     x = 800
@@ -22,6 +21,10 @@ if resolution == 0:
     gameScreenY = 370
     playerX = 300
     playerY = 300
+    leftCeiling =  250
+    rightCeiling = 445
+    floorCeiling = 259
+    topCeiling = 42
 elif resolution == 1:
     x = 1920
     y = 1080
@@ -37,6 +40,10 @@ elif resolution == 1:
     gameScreenY = 730
     playerX = 900
     playerY = 200
+    leftCeiling = 700
+    rightCeiling = 1060
+    floorCeiling = 480
+    topCeiling = 80
 
 screen = pygame.display.set_mode((x, y))
 
@@ -101,23 +108,26 @@ slot4Rect = slot4Surf.get_rect(center = (xSlotOp2, yButOp2))
 slot5Rect = slot5Surf.get_rect(center = (xSlotOp3, yButOp2))
 slot6Rect = slot5Surf.get_rect(center = (xSlotOp3, yButOp1))
 while True:
+    screen.blit(gameScreen, gameRect)
+    userInput = pygame.key.get_pressed()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if buttonUPRect.collidepoint(event.pos):
-                while playerRect.y > 42:
-                    playerRect.y -= 1
-            if buttonDOWNRect.collidepoint(event.pos):
-                while playerRect.y < 259:
-                    playerRect.y += 1
-            if buttonLEFTRect.collidepoint(event.pos):
-                while playerRect.x > 250:
-                    playerRect.x -= 1
-            if buttonRIGHTRect.collidepoint(event.pos):
-                while playerRect.x < 445:
-                    playerRect.x += 1
+        if userInput[pygame.K_w] or userInput[pygame.K_UP]:
+            if playerRect.y > topCeiling:
+                playerRect.y -= 7
+        elif userInput[pygame.K_s] or userInput[pygame.K_DOWN]:
+            if playerRect.y < floorCeiling:
+                playerRect.y += 7
+        elif userInput[pygame.K_a] or userInput[pygame.K_LEFT]:
+            if playerRect.x > leftCeiling:
+                playerRect.x -= 7
+        elif userInput[pygame.K_d] or userInput[pygame.K_RIGHT]:
+            if playerRect.x < rightCeiling:
+                playerRect.x += 7
+                    
+    screen.blit(playerSurf, playerRect)
 
     #screen.blit(barSurf, barRect)
     screen.blit(buttonUPSurf, buttonUPRect)
@@ -131,8 +141,9 @@ while True:
     screen.blit(slot5Surf, slot5Rect)
     screen.blit(slot6Surf, slot6Rect)
  #   screen.blit(rulerSurf, rulerRect)
-    screen.blit(gameScreen, gameRect)
-    screen.blit(playerSurf, playerRect)
+
+    
+    
 
 
 
