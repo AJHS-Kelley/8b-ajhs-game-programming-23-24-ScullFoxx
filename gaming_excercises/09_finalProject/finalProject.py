@@ -3,29 +3,17 @@
 import pygame, sys, random 
 from sys import exit
 clock = pygame.time.Clock()
-
+resolution = 0
 currentTimer = int(pygame.time.get_ticks() / 1000)
-resolution = 0 # 0 = Low resolution (800, 600), 1 = high resolution (1920, 1080)
-if resolution == 0:
-    x = 800
-    y = 600
-    xButOp1 = 180
-    yButOp1 = 430
-    xButOp2 = 70
-    yButOp2 = 540
-    xButOp3 = 290
-    xSlotOp1 = 740
-    xSlotOp2 = 628
-    xSlotOp3 = 516
-    gameScreenX = 200
-    gameScreenY = 370
-    playerX = 300
-    playerY = 300
-    leftCeiling =  250
-    rightCeiling = 445
-    floorCeiling = 259
-    topCeiling = 42
-elif resolution == 1:
+x = 800
+y = 600
+xButOp1, xButOp2, xButOp3 = 180, 70, 290
+yButOp1, yButOp2 = 430, 540
+xSlotOp1, xSlotOp2, xSlotOp3 = 740, 628, 516
+gameScreenX, gameScreenY = 200, 370
+playerX, playerY = 300, 300
+leftCeiling, rightCeiling, floorCeiling, topCeiling =  250, 445, 259, 42
+if resolution == 1:
     x = 1920
     y = 1080
     xButOp1 = 260
@@ -80,6 +68,7 @@ slot6Surf = pygame.image.load('img/slot.png')
 #rulerRect = rulerSurf.get_rect(topleft = (0, 720))
 gameScreen = pygame.image.load('img/DungeonRoom.png')
 playerSurf = pygame.image.load('img/slot.png')
+vel = 7
 
 if resolution == 0:
     gameScreen = pygame.transform.rotozoom(gameScreen, 0.3, 0.5)
@@ -95,7 +84,7 @@ if resolution == 0:
     slot6Surf = pygame.transform.rotozoom(slot6Surf, 0.3, 0.7)
     playerSurf = pygame.transform.rotozoom(playerSurf, 0.000001, 0.4)
 
-playerRect = playerSurf.get_rect(center = (playerX, playerY))
+
 gameRect = gameScreen.get_rect(bottomleft = (gameScreenX, gameScreenY))
 buttonUPRect = buttonUPSurf.get_rect(center = (xButOp1, yButOp1))
 buttonDOWNRect = buttonDOWNSurf.get_rect(center = (xButOp1, yButOp2))
@@ -108,26 +97,38 @@ slot4Rect = slot4Surf.get_rect(center = (xSlotOp2, yButOp2))
 slot5Rect = slot5Surf.get_rect(center = (xSlotOp3, yButOp2))
 slot6Rect = slot5Surf.get_rect(center = (xSlotOp3, yButOp1))
 while True:
+    clock.tick(100)
     screen.blit(gameScreen, gameRect)
     userInput = pygame.key.get_pressed()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-        if userInput[pygame.K_w] or userInput[pygame.K_UP]:
-            if playerRect.y > topCeiling:
-                playerRect.y -= 7
-        elif userInput[pygame.K_s] or userInput[pygame.K_DOWN]:
-            if playerRect.y < floorCeiling:
-                playerRect.y += 7
-        elif userInput[pygame.K_a] or userInput[pygame.K_LEFT]:
-            if playerRect.x > leftCeiling:
-                playerRect.x -= 7
-        elif userInput[pygame.K_d] or userInput[pygame.K_RIGHT]:
-            if playerRect.x < rightCeiling:
-                playerRect.x += 7
-                    
-    screen.blit(playerSurf, playerRect)
+        if userInput[pygame.K_w]:
+            if playerY > topCeiling:
+                playerY -= 7
+        elif userInput[pygame.K_s]:
+            if playerY < floorCeiling:
+                playerY += 7
+        elif userInput[pygame.K_a]:
+            if playerX > leftCeiling:
+                playerX -= 7
+        elif userInput[pygame.K_d]:
+            if playerX < rightCeiling:
+                playerX += 7
+        elif userInput[pygame.K_UP]:
+            if playerY > topCeiling:
+                playerY -= vel
+        elif userInput[pygame.K_DOWN]:
+            if playerY < floorCeiling:
+                playerY += vel
+        elif userInput[pygame.K_LEFT]:
+            if playerX > leftCeiling:
+                playerX -= vel
+        elif userInput[pygame.K_RIGHT]:
+            if playerX < rightCeiling:
+                playerX += vel
+    screen.blit(playerSurf, (playerX, playerY))
 
     #screen.blit(barSurf, barRect)
     screen.blit(buttonUPSurf, buttonUPRect)
