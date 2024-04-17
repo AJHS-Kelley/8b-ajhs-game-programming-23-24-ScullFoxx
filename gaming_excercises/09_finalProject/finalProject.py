@@ -97,7 +97,6 @@ slot4Rect = slot4Surf.get_rect(center = (xSlotOp2, yButOp2))
 slot5Rect = slot5Surf.get_rect(center = (xSlotOp3, yButOp2))
 slot6Rect = slot5Surf.get_rect(center = (xSlotOp3, yButOp1))
 while True:
-    clock.tick(100)
     screen.blit(gameScreen, gameRect)
     userInput = pygame.key.get_pressed()
     for event in pygame.event.get():
