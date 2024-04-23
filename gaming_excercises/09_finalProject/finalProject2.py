@@ -3,20 +3,28 @@
 import pygame, sys, random 
 from sys import exit
 clock = pygame.time.Clock()
+textFont = pygame.font.Font(None, 50)
+
 x = 1318
 y = 1080
 xSlotOp1, xSlotOp2, xSlotOp3 = 1020, 860, 700
 gameScreenX, gameScreenY = 600, 730
 leftCeiling, rightCeiling, floorCeiling, topCeiling =  700, 1060, 478, 78
 
+
 screen = pygame.display.set_mode((x, y))
 
-class InventorySlots: # Use PascalCase for ClassNames
+class InventorySlots: # Inventory Slots
     def __init__(self, xValue, yValue): 
         self.xValue = xValue
         self.yValue = yValue
         self.Image = pygame.image.load('Img/slot.png')
         self.Scale = None
+
+class ItemInteractions: # Such as doors, and pickups
+    def __init__(self, xValue, yValue):
+        self.xValue = xValue
+        self.yValue = yValue
 
 # Surfaces
 slot1 = InventorySlots(xSlotOp1, 760)
@@ -26,6 +34,7 @@ slot4 = InventorySlots(xSlotOp2, 760)
 slot5 = InventorySlots(xSlotOp3, 760)
 slot6 = InventorySlots(xSlotOp3, 920)
 gameScreen = pygame.image.load('img/DungeonRoom.png')
+interactionPanel = pygame.image.load("img/InteractionBox.png")
 
 # Player
 playerSurf = pygame.image.load('img/slot.png')
@@ -65,6 +74,7 @@ while run:
     screen.blit(slot5.Image, (slot5.xValue, slot5.yValue))
     screen.blit(slot6.Image, (slot6.xValue, slot6.yValue))
     screen.blit(gameScreen, gameRect)
+    screen.blit(interactionPanel, (0, 0))
     screen.blit(playerSurf, (playerX, playerY))
     #window.fill((0, 0, 0))
     pygame.display.update()
