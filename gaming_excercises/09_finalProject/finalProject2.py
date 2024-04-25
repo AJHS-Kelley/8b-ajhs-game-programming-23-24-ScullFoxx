@@ -42,7 +42,7 @@ playerX, playerY = 900, 200
 
 # Rectangles
 gameRect = gameScreen.get_rect(bottomleft = (gameScreenX, gameScreenY))
-window = "playscreen"
+gameLevel = 1
 
 vel = 5
 run = True
@@ -51,11 +51,12 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-    if window == "startscreen":
-        screen.fill((100,100,100))
+    if gameLevel == 1:
+        screen.fill((0,0,255))
+        #screen.blit(slot1.Image, (slot1.xValue, slot1.yValue))
         #playerSurf = pygame.image.load("img/playerDOWN.png")
         #screen.blit(playerSurf, (playerX, playerY))
-    elif window == "playscreen":
+    elif gameLevel == 2:
         if playerStatus == "DOWN":
             playerPosition = "img/playerDOWN.png"
             #print(playerPosition)
