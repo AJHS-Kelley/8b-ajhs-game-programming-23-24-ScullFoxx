@@ -1,9 +1,12 @@
 # Final Project, Alexandra Sculley, v0.9
 
-import pygame, sys, random 
+import pygame, sys, random, pygame.freetype
 from sys import exit
 clock = pygame.time.Clock()
 #textFont = pygame.font.Font(None, 50)
+pygame.init()
+PURPLE = (53, 43, 66) 
+textFont = pygame.font.Font(None, 50)
 
 x = 1318
 y = 1080
@@ -11,6 +14,7 @@ xSlotOp1, xSlotOp2, xSlotOp3 = 1020, 860, 700
 gameScreenX, gameScreenY = 600, 730
 leftCeiling, rightCeiling, floorCeiling, topCeiling =  700, 1130, 478, 78
 
+startText = textFont.render('Dungeon Crawler', False, (255,255,255))
 
 screen = pygame.display.set_mode((x, y))
 
@@ -42,17 +46,17 @@ playerX, playerY = 900, 200
 
 # Rectangles
 gameRect = gameScreen.get_rect(bottomleft = (gameScreenX, gameScreenY))
-gameLevel = 1
-
 vel = 5
 run = True
 while run:
+    gameLevel = 1
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
 
     if gameLevel == 1:
         screen.fill((0,0,255))
+        screen.blit(startText, (0,0))
         #screen.blit(slot1.Image, (slot1.xValue, slot1.yValue))
         #playerSurf = pygame.image.load("img/playerDOWN.png")
         #screen.blit(playerSurf, (playerX, playerY))
@@ -107,4 +111,4 @@ while run:
         screen.blit(interactionPanel, (0, 0))
         screen.blit(playerSurf, (playerX, playerY))
         #window.fill((0, 0, 0))
-        pygame.display.update()
+    pygame.display.update()
