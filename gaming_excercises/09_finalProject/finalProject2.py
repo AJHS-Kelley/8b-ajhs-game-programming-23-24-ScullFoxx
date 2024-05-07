@@ -107,4 +107,4 @@ while run:
         screen.blit(interactionPanel, (0, 0))
         screen.blit(playerSurf, (playerX, playerY))
         #window.fill((0, 0, 0))
-        pygame.display.update()
+    pygame.display.update()
