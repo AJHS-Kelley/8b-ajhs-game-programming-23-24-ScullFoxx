@@ -6,7 +6,7 @@ clock = pygame.time.Clock()
 #textFont = pygame.font.Font(None, 50)
 pygame.init()
 PURPLE = (53, 43, 66) 
-textFont = pygame.font.Font('Fonts/Kenney Rocket.ttf', 50)
+textFont = pygame.font.Font('Fonts/Kenney Future.ttf', 50)
 
 x = 1318
 y = 1080
